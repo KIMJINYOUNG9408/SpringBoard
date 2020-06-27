@@ -12,10 +12,12 @@
 
 <div id="root">
  <header>
-  <%@include file="include/header.jsp" %>
- </header>
+<%@include file="include/header.jsp" %> 
+</header>
 <hr /> 
- <nav> <%@include file="include/nav.jsp" %></nav>
+ <nav>
+ <%@include file="include/nav.jsp" %>
+ </nav>
 <hr />
  <section id="container">
   <h2>글 목록</h2>
@@ -28,7 +30,7 @@
    <tr>
     <td>${list.bno}</td>
     <td>
-    <a href="/board/read?bno=${list.bno }">${list.title}</a>
+    	<a href="/board/read?bno=${list.bno}">${list.title}</a>
     </td>
     <td>${list.writer}</td>
     <td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
@@ -37,14 +39,28 @@
    <!-- 목록 끝 -->
    
   </table>
-
+	
+<div>
+ <ul>
+  <c:if test="${pageMaker.prev}">
+   <li><a href="listPage${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
+  </c:if> 
+  
+  <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+   <li><a href="listPage${pageMaker.makeQuery(idx)}">${idx}</a></li>
+  </c:forEach>
+    
+  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+   <li><a href="listPage${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
+  </c:if> 
+ </ul>
+</div>
  </section>
 
 <hr />
 
  <footer>
- <%@include file="include/footer.jsp" %>
- </footer>
+<%@include file="include/footer.jsp" %> </footer>
 
 </div>
 

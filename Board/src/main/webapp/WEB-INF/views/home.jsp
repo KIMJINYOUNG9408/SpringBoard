@@ -8,5 +8,7 @@
 
 <a href="/board/write">글작성</a> <br>
 <a href="/board/list">글목록</a>
+<a href="/board/listPage">글목록 + 페이지</a>
+<a href="/board/listSearch">글목록 + 페이지 + 목록</a>
 </body>
 </html>

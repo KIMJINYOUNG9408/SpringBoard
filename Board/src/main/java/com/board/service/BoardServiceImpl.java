@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 
 import com.board.domain.BoardVO;
+import com.board.domain.Criteria;
+import com.board.domain.SearchCriteria;
 import com.board.persistence.BoardDAO;
 
 @Repository
@@ -48,6 +50,34 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> list() throws Exception {
 
 		return dao.list();
+	}
+
+	// 목록 + 페이징
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+		
+		return dao.listPage(cri);
+		
+		
+	}
+
+	// 게시물 총갯수
+	@Override
+	public int listCount() throws Exception {
+		
+		return dao.listCount();
+	}
+
+	@Override
+	public List<BoardVO> listSearch(SearchCriteria scri) throws Exception {
+		
+		return dao.listSearch(scri);
+	}
+
+	@Override
+	public int countSearch(SearchCriteria scri) throws Exception {
+		
+		return dao.countSearch(scri);
 	}
 
 }
