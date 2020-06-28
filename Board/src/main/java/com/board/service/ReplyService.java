@@ -1,11 +1,10 @@
-package com.board.persistence;
+package com.board.service;
 
 import java.util.List;
 
 import com.board.domain.ReplyVO;
 
-public interface ReplyDAO {
-	
+public interface ReplyService {
 	// 댓글 조회
 	public List<ReplyVO> readReply(int bno) throws Exception;
 	
